@@ -5,7 +5,7 @@ import NewGoalForm from './NewGoalForm'
 import CurrentGoalEntry from './CurrentGoalEntry'
 import {
     useSession, signIn, signOut
-  } from 'next-auth/client'
+  } from 'next-auth/react'
   
 
 function Dashboard()

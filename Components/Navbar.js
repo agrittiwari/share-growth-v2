@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   useSession, signIn, signOut
-} from 'next-auth/client'
+} from 'next-auth/react'
 
 
 function Navbar({ user })
