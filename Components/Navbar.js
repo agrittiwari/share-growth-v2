@@ -6,7 +6,7 @@ import {
 
 function Navbar({ user })
 {
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
     return (
         
             

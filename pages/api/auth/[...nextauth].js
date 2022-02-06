@@ -1,41 +1,28 @@
-import NextAuth from "next-auth"
-import { getProviders } from "next-auth/react"
+import NextAuth from 'next-auth'
+import AppleProvider from 'next-auth/providers/apple'
+import FacebookProvider from 'next-auth/providers/facebook'
+import GoogleProvider from 'next-auth/providers/google'
+import EmailProvider from 'next-auth/providers/email'
 
-//import nodemailer from "nodemailer"
-
-export default async (req, res) => {
-  const providers = await getProviders()
-  console.log("Providers", providers)
-  res.end()
-}
-
-// export default async (req, res) => {
-//   const providers = await getProviders()
-//   // Configure one or more authentication providers
-//   providers: [
-//     Providers.GitHub({
-//       clientId: process.env.GITHUB_ID,
-//       clientSecret: process.env.GITHUB_SECRET,
-//     }),
-//      Providers.Google({
-//     clientId: process.env.GOOGLE_CLIENT_ID,
-//     clientSecret: process.env.GOOGLE_CLIENT_SECRET
-//   }),
-//     // Passwordless / email sign in
-//     Providers.Email({
-//       server: {
-//         host: process.env.EMAIL_SERVER_HOST,
-//         port: process.env.EMAIL_SERVER_PORT,
-//         auth: {
-//           user: process.env.EMAIL_SERVER_USER,
-//           pass: process.env.EMAIL_SERVER_PASSWORD
-//         }
-//       },
-//       from: process.env.EMAIL_FROM
-//     }),
-//     // ...add more providers here
-//   ],
-
-//   // A database is optional, but required to persist accounts in a database
-//   database: process.env.MONGODB_URI,
-// })
+export default NextAuth({
+  providers: [
+    // OAuth authentication providers...
+    // AppleProvider({
+    //   clientId: process.env.APPLE_ID,
+    //   clientSecret: process.env.APPLE_SECRET
+    // }),
+    // FacebookProvider({
+    //   clientId: process.env.FACEBOOK_ID,
+    //   clientSecret: process.env.FACEBOOK_SECRET
+    // }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET
+    }),
+    // Passwordless / email sign in
+    EmailProvider({
+      server: process.env.MAIL_SERVER,
+      from: 'Share-Online <no-reply@example.com>'
+    }),
+  ]
+})
