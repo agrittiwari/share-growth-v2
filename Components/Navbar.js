@@ -24,13 +24,13 @@ function Navbar({ user })
         <li className="nav-item">
           <a className="nav-link" href="#">Features</a>
         </li>
-       {!session && <li className="nav-item"> <button onClick={() => signIn()}>Sign in</button>
+       {!session && <li className="nav-item"> <button onClick={ signIn}>Sign in</button>
         
         </li> }
         
         {session && (     
                     <li className="nav-item">
-                      Not signed in <br /> <button onClick={() => signOut()}>Sign out</button>
+                       Signed in <br /> <button onClick={() => signOut()}>Sign out</button>
                     </li>        
         )}     
 

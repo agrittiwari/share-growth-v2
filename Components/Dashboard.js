@@ -12,7 +12,8 @@ function Dashboard()
 {
  const {saveUser, currentUser, setCurrentUser, getUser} = useContext(SaveUserContext)
  
- const [session, loading] = useSession()
+ const { data: session, status } = useSession()
+
     
    useEffect(() => {
     console.log('printing...')
@@ -23,27 +24,31 @@ function Dashboard()
  
 
     return (
-        <div>
-             <Navbar />
-            <div className=" flex flex-row space-between border-4 border-black justify-between w-11/12">
-               
-                <div className="flex flex-row border-2 m-2 border-black w-1/2">
-                    <h3>{loading &&
-                    console.log(session.user.userId)
-                    }</h3>
-                   {session && <img src={session.user.name} className=" rounded-full h-20 w-20" />}
-                   {session && <h1>hello {session.user.email}</h1>}
-               </div>
-     
-            </div>
-            
-            <div className="flex flex-row justify-items-center bg-gray-100 p-10 w-11/12 ">
-          <CurrentGoalEntry />
-          <NewGoalForm />
+                 
+      <div>
+      <Navbar />
+     <div className=" flex flex-row space-between border-4 border-black justify-between w-11/12">
+        
+         <div className="flex flex-row border-2 m-2 border-black w-1/2">
+             <h3>
+             console.log(session.user.userId)
+             </h3>
+           <img src={session.user.name} className=" rounded-full h-20 w-20" />
+             <h1>hello {session.user.email}</h1>
         </div>
+
+     </div>
+     
+     <div className="flex flex-row justify-items-center bg-gray-100 p-10 w-11/12 ">
+   <CurrentGoalEntry />
+   <NewGoalForm />
+ </div>
+
+    
+ </div> 
        
            
-        </div>
+        
     )
 }
 
