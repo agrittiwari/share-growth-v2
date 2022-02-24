@@ -34,8 +34,9 @@ export default function EditProfile()
         <div><head>  
             <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
         </head>
-        <main><div className="container mx-auto relative h-100 w-82">
-              <div className="m-100 p-10 mt-20 px-70 border-1  bg-white  flex flex-col shadow-2xl rounded-lg w-11/12 inset-5">
+            <main>
+                <div className="container mx-auto relative h-100 w-82">
+              <div className="m-100 p-10 mt-20 px-70 border-1  bg-blue-200  flex flex-col shadow-2xl rounded-lg w-11/12 inset-5">
             <strong className="underline">Edit your Profile here!</strong>
      <form className="form my-3 flex flex-col">
           <label className="p-2 decoration-solid	" >About</label>

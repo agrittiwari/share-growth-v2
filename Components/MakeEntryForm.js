@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function CurrentGoalEntry() {
+function MakeEntryForm() {
     const [goalsList, setGoalsList] = useState([
         {id: 'BUI', name: 'build a Habit of Reading books'},
         {id: 'GOA', name:'Goal' },
@@ -35,4 +35,4 @@ function CurrentGoalEntry() {
     )
 }
 
-export default CurrentGoalEntry
+export default MakeEntryForm
