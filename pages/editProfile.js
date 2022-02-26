@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import clientPromise from "../lib/mongodb";
 
 export default function EditProfile()
 {
@@ -29,8 +30,8 @@ export default function EditProfile()
         })
     }
 
-   {console.log(session)}
-
+    // { console.log(`this is from edit page ${ { ...session }}`)}
+{console.log(session)}
     if (typeof window !== 'undefined' && status ==='loading') return null;
 
     if (status === "unauthenticated") return (
@@ -67,3 +68,16 @@ export default function EditProfile()
         
     )
 }
+
+export async function getServerSideProps(context) {
+    const client = await clientPromise;
+  
+    const db = client.db();
+  
+    let users = await db.collection("users").findById(user.id);
+    users = JSON.parse(JSON.stringify(users));
+  
+    return {
+      props: { users },
+    };
+  }
