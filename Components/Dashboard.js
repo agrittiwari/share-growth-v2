@@ -13,16 +13,16 @@ import { LinkDiv1, LinkDiv2 } from './LinkDiv'
 
 function Dashboard()
 {
- const {saveUser, currentUser, setCurrentUser, getUser} = useContext(SaveUserContext)
+//  const {saveUser, currentUser, setCurrentUser, getUser} = useContext(SaveUserContext)
  
- const { data: session, status } = useSession()
+  const { data: session, status } = useSession()
 
     
-   useEffect(() => {
-    console.log('printing...')
-     getUser(session)
-     console.log('printing...')
-}, [])
+//    useEffect(() => {
+//     console.log('printing...')
+//      getUser(session)
+//      console.log('printing...')
+// }, [])
  
  
 

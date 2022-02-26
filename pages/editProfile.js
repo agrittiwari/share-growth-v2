@@ -29,7 +29,7 @@ export default function EditProfile()
         })
     }
 
-   
+   {console.log(session)}
 
     if (typeof window !== 'undefined' && status ==='loading') return null;
 

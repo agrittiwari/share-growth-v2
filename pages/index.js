@@ -1,4 +1,7 @@
-import { useSession } from "next-auth/react"
+import
+  {
+    useSession
+  } from "next-auth/react"
 
 import Head from 'next/head'
 import { useContext, useEffect } from 'react'
@@ -39,7 +42,7 @@ const Home = ({ isConnected }) =>
         
             {(status === 'authenticated') && <>
               <Dashboard />
-          
+              {console.log(session)}
             </>}
             {/* <h2>{currentUser}</h2> */}
             {isConnected ? (
@@ -72,7 +75,9 @@ export async function getServerSideProps(context) {
     // db.find({}) or any of the MongoDB Node Driver commands
     await clientPromise
     return {
-      props: { isConnected: true },
+      props: {
+        isConnected: true,
+        },
     }
   } catch (e) {
     console.error(e)
