@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import clientPromise from '../lib/mongodb'
 
 import NewGoalForm from '../Components/NewGoalForm';
 
-const makeEntry = () => {
+const makeEntry = ({isConnected}) => {
     const { data: session,status } = useSession()
    // const [content, setContent] = useState()
 
@@ -37,11 +38,43 @@ const makeEntry = () => {
             <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
         </head>
         <main><div className="container-fluid mx-auto relative h-100 w-82">
-      
-                <NewGoalForm/>
+        <div>  {isConnected ? (
+              <div className="justify-self-center m-5 ml-49">
+                <h2>Your Habits
+                </h2>
+              </div>
+            ) : (
+              <h2 className="subtitle justify-self-center">
+                Your habits aren't loading <code>README.md</code>{' '}
+                for instructions.
+              </h2>
+            )}</div>
+                <NewGoalForm  />
                 </div>   
             </main>
             </div>)
 }
 
 export default makeEntry
+
+
+export async function getServerSideProps(context) {
+    try {
+      // client.db() will be the default database passed in the MONGODB_URI
+      // You can change the database by calling the client.db() function and specifying a database like:
+      // const db = client.db("myDatabase");
+      // Then you can execute queries against your database like so:
+      // db.find({}) or any of the MongoDB Node Driver commands
+      await clientPromise
+      return {
+        props: {
+          isConnected: true,
+          },
+      }
+    } catch (e) {
+      console.error(e)
+      return {
+        props: { isConnected: false },
+      }
+    }
+  }

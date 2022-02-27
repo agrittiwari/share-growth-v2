@@ -7,8 +7,8 @@ export default async (req, res) =>
     console.log({ ...session })
     if (session) {
         try {
-            let {db} = await connectToDatabase()
-
+            let { db } = await connectToDatabase()
+            console.log(req.body)
         } catch (err) {
             return res.json({error: err.message})
         }

@@ -24,7 +24,7 @@ export default function EditProfile()
 
         setError('');
         setMessage('');
-        const postDetails = await fetch('/api/editDetails', {
+        const postDetails = await fetch('/api/editProfile', {
             method: 'POST',
             body: JSON.stringify(details),
         })
@@ -69,15 +69,15 @@ export default function EditProfile()
     )
 }
 
-export async function getServerSideProps(context) {
-    const client = await clientPromise;
+// export async function getServerSideProps(context) {
+//     const client = await clientPromise;
   
-    const db = client.db();
+//     const db = client.db();
   
-    let users = await db.collection("users").findById(user.id);
-    users = JSON.parse(JSON.stringify(users));
+//     let users = await db.collection("users").findById(user.id);
+//     users = JSON.parse(JSON.stringify(users));
   
-    return {
-      props: { users },
-    };
-  }
+//     return {
+//       props: { users },
+//     };
+//   }
