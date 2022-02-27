@@ -1,5 +1,5 @@
 import { getSession } from "next-auth/react";
-const { clientPromise } = require('../../../lib/mongodb');
+import clientPromise from "../../../lib/mongodb"; 
 const ObjectId = require('mongodb').ObjectId;
 
 
