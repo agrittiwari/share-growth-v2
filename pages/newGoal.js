@@ -5,7 +5,8 @@ import clientPromise from '../lib/mongodb'
 
 import NewGoalForm from '../Components/NewGoalForm';
 
-const makeEntry = ({isConnected}) => {
+const makeEntry = ({ isConnected }) =>
+{
     const { data: session,status } = useSession()
    // const [content, setContent] = useState()
 
@@ -49,7 +50,9 @@ const makeEntry = ({isConnected}) => {
                 for instructions.
               </h2>
             )}</div>
-                <NewGoalForm  />
+                <NewGoalForm userId={session?.user.id} />
+                {console.log(session?.user.id)}
+                {/* {console.log(ObjectId)} */}
                 </div>   
             </main>
             </div>)

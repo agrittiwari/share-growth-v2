@@ -1,13 +1,15 @@
 import React ,{useState }from 'react'
 
 
-const NewGoalForm =() => {
+const NewGoalForm =({userId}) => {
     const [title, setTitle] = useState('')
    
     const [description, setDescription] = useState('');
     const [error, setError] = useState('');
 const [message, setMessage] = useState('')
-    const postGoal = async(e) =>
+   
+    
+    const postGoal = async (e) =>
     {
         e.preventDefault()
 
@@ -20,6 +22,7 @@ const [message, setMessage] = useState('')
         let goal = {
             title,
             description,
+            userId,
             createdAt: new Date().toISOString()
         } 
 
@@ -54,7 +57,7 @@ console.log( data)
             <br/>
             <h1 className="text-3xl	mb-2 p-4 mt-0 underline ">What do you want to track and share:</h1>
             <form onSubmit={postGoal} className="form flex p-4 flex-col">
-                
+                {console.log(`in new goal ${userId}`)}
                 <div>{error ? <>{error}</> : null}</div>
                 <div>
                     {message ? <div><h1>Your Goal creation status</h1>
