@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@next-auth/mongodb-adapter": "^1.0.1",
-    "mongodb": "3.5.9",
+    "mongodb": "^4.4.0",
     "next": "latest",
     "next-auth": "^4.2.1",
     "nodemailer": "^6.7.2",

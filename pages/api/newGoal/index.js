@@ -31,11 +31,13 @@ async function addGoal(req, res)
         const db = client.db()
           
         //add the goal    -JSON.parse(req.body)
-     const response =   await db.collection('users').updateOne({ _id:  ObjectId(req.body.userId) }, {
-            $set: {
-                goals: JSON.parse(req.body)
-            } },
-            { $upsert: true })
+         await db.collection('users').aggregate([
+            { $match: { _id: new ObjectId(req.body.userId) } },
+            {$set: {
+                goals: { $concatArrays: [goals, [JSON.parse(req.body)]] } 
+            }}
+        ])
+          
    
         //return a message
         return res.json({

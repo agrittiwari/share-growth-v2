@@ -51,7 +51,7 @@ const makeEntry = ({ isConnected }) =>
               </h2>
             )}</div>
                 <NewGoalForm userId={session?.user.id} />
-                {console.log(session?.user.id)}
+                {/* {console.log(session?.user.id)} */}
                 {/* {console.log(ObjectId)} */}
                 </div>   
             </main>

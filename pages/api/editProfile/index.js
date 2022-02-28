@@ -1,23 +1,53 @@
-import { getSession } from "next-auth/react";
-import {connectToDatabase} from '../../../lib/mongodb'
+import clientPromise from "../../../lib/mongodb"; 
 
-export default async (req, res) =>
+import { ObjectId } from "mongodb";
+export default async function handler(req, res)
 {
-    const session = await getSession({ req });
-    console.log({ ...session })
-    if (session) {
-        try {
-            let { db } = await connectToDatabase()
-            console.log(req.body)
-        } catch (err) {
-            return res.json({error: err.message})
+   
+    switch (req.method) {
+        case 'POST': {
+            return updateDetails(req, res);
         }
-        // res.send({
-        //     content:'Edit the profile'
-        // })
-    } else {
-        res.send({
-            error:'You need to be signed in!'
+
+        case 'DELETE': {
+            return deleteGoal(req, res);
+        }
+    }
+                         
+}
+
+async function updateDetails(req, res)
+{
+    try {
+        //connect to database
+        const client = await clientPromise;
+        const db = client.db()
+         
+        //update.details    
+       const response = await db.collection('users').aggregate([ { $match: { _id: new ObjectId(req.body.userId) } },
+            {
+                $addFields: {
+                    about: req.body.about,
+                    twitterHandle: req.body.twitterHandle,
+                    bioLink: req.body.bioLink,
+                    goals: []
+                }
+            },
+            { upsert: true }]
+        )
+
+        console.log(response)
+        //return a message
+        return res.json({
+            message: 'Details updated successfully',
+            success: true
+        })
+    } catch (error) {
+        // return an error
+        return res.json({
+            message: new Error(error).message,
+            success: false,
         })
     }
-}
+    
+}   
