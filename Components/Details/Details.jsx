@@ -25,28 +25,35 @@ const postDetails = async (e) =>
         goals:[]
 
 }
+    console.log(JSON.stringify(details))
+    console.log(details)
+    //console.log(JSON.parse(details))
+    try {
+        const response = await fetch('/api/editProfile', {
+            method: 'POST',
+            body: JSON.stringify(details)
+        })
     
-    const response = await fetch('/api/editProfile', {
-        method: 'POST',
-        body: JSON.stringify(details)
-    })
-
-        //get the data
-
-        let data = await response.json()
-console.log( data)
-        if (data.success) {
-             // reset the fields
-             setAbout('');
-            setTwitterHandle('');
-            setBioLink('')
-             // set the message
-            return setMessage(data.message)
-        } else {
-            return setError(data.message)
-        }
-
-
+            //get the data
+    
+            let data = await response.json()
+    console.log( data)
+            if (data.success) {
+                 // reset the fields
+                 setAbout('');
+                setTwitterHandle('');
+                setBioLink('')
+                 // set the message
+                return setMessage(data.message)
+            } else {
+                return setError(data.message)
+            }
+    
+    
+    } catch (err) {
+        console.error('error happened her', error)
+    }
+   
 }
     return (
         <div className="m-100 p-10 mt-20 px-70 border-1  bg-blue-200  flex flex-col shadow-2xl rounded-lg w-11/12 inset-5">

@@ -45,7 +45,7 @@ const Home = ({ isConnected }) =>
               {console.log(session)}
             </>}
             {/* <h2>{currentUser}</h2> */}
-            {isConnected ? (
+            {/* {isConnected ? (
               <div className="justify-self-center m-5 ml-49">
                 <h2>Your Habits
                 </h2>
@@ -55,7 +55,7 @@ const Home = ({ isConnected }) =>
                 Your habits aren't loading <code>README.md</code>{' '}
                 for instructions.
               </h2>
-            )}
+            )} */}
           </main>}
         {(status === 'unauthenticated') &&   <main>
           <HomePage />
