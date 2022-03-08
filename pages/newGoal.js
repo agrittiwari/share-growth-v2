@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import clientPromise from '../lib/mongodb'
 
-import NewGoalForm from '../Components/NewGoalForm';
+import { NewGoalForm } from '../Components/Forms';
 
 const makeEntry = ({ isConnected }) =>
 {

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-function MakeEntryForm() {
+export const MakeEntryForm=()=> {
     const [goalsList, setGoalsList] = useState([
         {id: 'BUI', name: 'build a Habit of Reading books'},
         {id: 'GOA', name:'Goal' },
@@ -36,4 +36,4 @@ function MakeEntryForm() {
     )
 }
 
-export default MakeEntryForm
+

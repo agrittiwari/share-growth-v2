@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
-import MakeEntryForm from '../Components/MakeEntryForm';
+import { MakeEntryForm } from '../Components/Forms';
 
 const makeEntry = () => {
     const { data: session,status } = useSession()

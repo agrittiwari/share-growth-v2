@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { SuccessAlert, ErrorAlert} from "../Alert";
 
 
 export const EditDetails = ({userId}) =>
@@ -51,24 +52,23 @@ const postDetails = async (e) =>
     
     
     } catch (err) {
-        console.error('error happened her', error)
+        console.error('error happened here', error)
     }
    
 }
     return (
         <div className="m-100 p-10 mt-20 px-70 border-1  bg-blue-200  flex flex-col shadow-2xl rounded-lg w-11/12 inset-5">
-                      <div>{error ? <>{error}</> : null}</div>
-                <div>
-                    {message ? <div><h1>Your Goal creation status</h1>
-                   <p>{ message}</p></div> : null}
-                </div>   
+                     {error ? <ErrorAlert error={error} /> : null}
+               
+                {message ? <SuccessAlert msg={message}/>: null}
+                
         <strong className="underline">Edit your Profile here!</strong>
         
 
         <form onSubmit={postDetails} className="form my-3 flex flex-col">
            
         <label className="p-2 decoration-solid	" >About</label>
-        <input className="form-input border border-gray-400 p-6 rounded-lg appearance-none focus:border-gray-500 focus:outline-none" name="about" value={about} onChange={(e)=>setAbout(e.target.value)}  required type="text" placeholder="Write about yourself and what are you going to share" />
+        <input className="form-input border border-gray-400 p-6 rounded-lg appearance-none focus:border-gray-500 focus:outline-none" name="about" value={about} onChange={(e)=>setAbout(e.target.value)}   type="text" placeholder="Write about yourself and what are you going to share" />
            
         <label className="p-2 decoration-solid	">Twitter Username <i className="fa fa-twitter" aria-hidden="true"></i></label>
          <input type="text" className="form-input border border-gray-400 p-2 rounded-lg appearance-none focus:border-gray-500 focus:outline-none" name="twitterHandle" value={twitterHandle} onChange={(e) =>setTwitterHandle(e.target.value)}  placeholder="twitter username" />
@@ -79,12 +79,7 @@ const postDetails = async (e) =>
             <button type="submit" className="rounded-full bg-blue-600  p-1 border border-gray-600">Update</button>
 
     </form>
-    <div><h1>Displaying state:</h1>
-        <li>{about}</li>
-        <li>{twitterHandle}</li>
-        <li>{ bioLink}</li>
-    </div>
-    </div>
+      </div>
 )
      
 } 

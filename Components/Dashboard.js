@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useContext} from 'react'
 import { SaveUserContext } from '../Contexts/userContext/userContext'
 import Navbar from './Navbar'
-import NewGoalForm from './NewGoalForm'
-import CurrentGoalEntry from './MakeEntryForm'
+import NewGoalForm from './Forms/'
+import MakeEntryForm from './Forms'
 import {
     useSession, signIn, signOut
   } from 'next-auth/react'

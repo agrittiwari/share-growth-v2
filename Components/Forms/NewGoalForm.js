@@ -1,7 +1,7 @@
 import React ,{useState }from 'react'
 
 
-const NewGoalForm =({userId}) => {
+export const NewGoalForm =({userId}) => {
     const [title, setTitle] = useState('')
    
     const [description, setDescription] = useState('');
@@ -54,15 +54,15 @@ console.log( data)
     return (
         <div className="ml-40  my-12 px-15 bg-white justify-items-center flex bg-blue-200  flex-col shadow-2xl w-8/12 rounded-lg">
             <strong className=" my-2 mb-0 p-4 text-4xl ">New Goal </strong>
-            <br/>
+            <br />
+            {error ? <ErrorAlert error={error} /> : null}
+               
+            {message ? <SuccessAlert msg={message} /> : null}
+            
             <h1 className="text-3xl	mb-2 p-4 mt-0 underline ">What do you want to track and share:</h1>
             <form onSubmit={postGoal} className="form flex p-4 flex-col">
                 {console.log(`in new goal ${userId}`)}
-                <div>{error ? <>{error}</> : null}</div>
-                <div>
-                    {message ? <div><h1>Your Goal creation status</h1>
-                   <p>{ message}</p></div> : null}
-                </div>
+
                 
                 <label htmlFor="track growth" className='mb-0 text-xl'>Give a label for your New Goal:</label>
                 <br/>
@@ -86,7 +86,7 @@ console.log( data)
     )
 }
 
-export default NewGoalForm
+
 
 
   

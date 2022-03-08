@@ -43,10 +43,10 @@ async function updateDetails(req, res)
         //update.details    
         const response = await db.collection('users').updateOne({ _id: id }, {
             $set: {
-                about: updateDetails.about,
-                twitterHandle: updateDetails.twitterHandle,
-                bioLink: updateDetails.bioLink,
-                goals: updateDetails.goals
+                about: updatedDetails.about,
+                twitterHandle: updatedDetails.twitterHandle,
+                bioLink: updatedDetails.bioLink,
+                goals: updatedDetails.goals
             }
         }, {
             upsert: true   
