@@ -1,5 +1,9 @@
+import Head from "next/head";
 
-const PublicPage = ({ user }) =>
+
+const ProfilePage = ({ user }) =>
 {
-    
+   <>
+   
+   </> 
 }

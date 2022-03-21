@@ -4,28 +4,18 @@ import
   } from "next-auth/react"
 
 import Head from 'next/head'
-import { useContext, useEffect } from 'react'
 
 // import { SaveUserContext } from '../Contexts/userContext/userContext'
 
 import clientPromise from '../lib/mongodb'
-import {DashboardComponent} from '../Components/DashboardComponent'
-import HomePage from '../Components/HomePage'
+import {DashboardComponent} from '../../Components/DashboardComponent'
 
 
 
-const Home = ({ isConnected }) =>
+const Dashboard = ({ isConnected }) =>
 {
   const { data: session, status } = useSession()
-  //const {currentUser,saveUser, getUser, setCurrentUser} = useContext(SaveUserContext)
- 
- 
-  // useEffect(() =>
-  // {
-  //   saveUser(user)
-  //   getUser()
-     
-  // }, [session])
+  
 
     return (
       <div className="overflow-hidden">
@@ -41,7 +31,7 @@ const Home = ({ isConnected }) =>
             {/* <p>Signed in as {session.user.email}</p> */}
         
             {(status === 'authenticated') && <>
-              <DashboardComponent />
+              <Dashboard />
               {console.log(session)}
             </>}
             {/* <h2>{currentUser}</h2> */}
@@ -64,7 +54,7 @@ const Home = ({ isConnected }) =>
   
  
   }
-export default Home;
+export default Dashboard;
 
 export async function getServerSideProps(context) {
   try {

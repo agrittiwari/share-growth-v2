@@ -1,17 +1,18 @@
 import React, {useEffect, useState, useContext} from 'react'
-import { SaveUserContext } from '../Contexts/userContext/userContext'
-import Navbar from './Navbar'
-import NewGoalForm from './Forms/'
-import MakeEntryForm from './Forms'
+import { SaveUserContext } from '../../Contexts/userContext/userContext'
+import Navbar from '../Navbar'
+import NewGoalForm from '../Forms'
+import MakeEntryForm from '../Forms'
 import {
     useSession, signIn, signOut
   } from 'next-auth/react'
 import Link from 'next/link'
-import SharedItem from './SharedItem'
-import { LinkDiv1, LinkDiv2 } from './LinkDiv'
+import SharedItem from '../SharedItem'
+import { LinkDiv1, LinkDiv2 } from '../LinkDiv'
   
 
-function Dashboard()
+
+export function DashBoardComponent()
 {
 //  const {saveUser, currentUser, setCurrentUser, getUser} = useContext(SaveUserContext)
  
@@ -68,5 +69,3 @@ function Dashboard()
         
     )
 }
-
-export default Dashboard

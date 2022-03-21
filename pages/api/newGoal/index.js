@@ -1,17 +1,13 @@
-import { getSession } from "next-auth/react";
 import clientPromise from "../../../lib/mongodb"; 
 
-const ObjectId = require('mongodb').ObjectId;
-
-
-
+import { ObjectId } from "mongodb";
 
 export default async function handler(req, res)
 {
    
     switch (req.method) {
         case 'POST': {
-            return addGoal(req, res);
+            return addNewGoal(req, res);
         }
 
         case 'DELETE': {
@@ -21,20 +17,32 @@ export default async function handler(req, res)
                          
 }
     
-async function addGoal(req, res)
+async function addNewGoal(req, res)
 {     
     try {
 
         
+        let newGoal = JSON.parse(req.body)
+        console.log(`In Backend ${newGoal}`)
+        let id = ObjectId(newGoal.userId)
+
+        console.log(newGoal.uerId, id)
+
+        let {title, description, createdAt} = newGoal
+        console.log(title, description, createdAt)
+        
+        if (!title || !description || !createdAt) {
+            throw new Error("invalid Request") 
+        }
         //connect to database
         const client = await clientPromise;
         const db = client.db()
           
         //add the goal    -JSON.parse(req.body)
          await db.collection('users').aggregate([
-            { $match: { _id: new ObjectId(req.body.userId) } },
+            { $match: { _id:id } },
             {$set: {
-                goals: { $concatArrays: [goals, [JSON.parse(req.body)]] } 
+                goals: { $concatArrays: [goals, [newGoal]] } 
             }}
         ])
           

@@ -1,5 +1,5 @@
 import React ,{useState }from 'react'
-
+import { ErrorAlert, SuccessAlert} from '../Alert'
 
 export const NewGoalForm =({userId}) => {
     const [title, setTitle] = useState('')
@@ -13,13 +13,14 @@ const [message, setMessage] = useState('')
     {
         e.preventDefault()
 
+        console.log('clicked')
         setError('');
         setMessage('');
         if (!title || !description) return setError('All fields are required!!')
         
         //goal structure
 
-        let goal = {
+        let newGoal = {
             title,
             description,
             userId,
@@ -28,7 +29,7 @@ const [message, setMessage] = useState('')
 
         let response = await fetch('/api/newGoal', {
             method: 'POST',
-            body: JSON.stringify(goal),
+            body: JSON.stringify(newGoal),
         });
 
 
