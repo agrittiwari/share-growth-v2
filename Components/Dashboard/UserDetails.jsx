@@ -1,5 +1,10 @@
+import { fetcher } from '@/lib/fetch';
+import {useUserDetails} from '../../lib/userDetails'
+
 export const UserDetails =() =>{
     
+const {data, error, isValidating} = useUserDetails(session.user.id)
+
     return( 
     
     <div className="flex flex-row  m-2 ">

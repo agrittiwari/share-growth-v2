@@ -7,8 +7,9 @@ import Head from 'next/head'
 
 // import { SaveUserContext } from '../Contexts/userContext/userContext'
 
-import clientPromise from '../lib/mongodb'
-import {DashboardComponent} from '../../Components/DashboardComponent'
+import clientPromise from '../../lib/mongodb'
+
+import { DashboardComponent } from "../../Components/Dashboard"
 
 
 
@@ -30,10 +31,10 @@ const Dashboard = ({ isConnected }) =>
           <main>
             {/* <p>Signed in as {session.user.email}</p> */}
         
-            {(status === 'authenticated') && <>
-              <Dashboard />
-              {console.log(session)}
-            </>}
+            
+              <DashboardComponent />
+              {console.log(`this is from dashboard page ${session.user.id}`)}
+            
             {/* <h2>{currentUser}</h2> */}
             {/* {isConnected ? (
               <div className="justify-self-center m-5 ml-49">

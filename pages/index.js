@@ -2,14 +2,15 @@ import
   {
     useSession
   } from "next-auth/react"
+  import { useRouter } from 'next/router'
 
 import Head from 'next/head'
-import { useContext, useEffect } from 'react'
+//import { useContext, useEffect } from 'react'
 
 // import { SaveUserContext } from '../Contexts/userContext/userContext'
 
 import clientPromise from '../lib/mongodb'
-import {DashboardComponent} from '../Components/DashboardComponent'
+
 import HomePage from '../Components/HomePage'
 
 
@@ -17,6 +18,7 @@ import HomePage from '../Components/HomePage'
 const Home = ({ isConnected }) =>
 {
   const { data: session, status } = useSession()
+  const router= useRouter()
   //const {currentUser,saveUser, getUser, setCurrentUser} = useContext(SaveUserContext)
  
  
@@ -41,8 +43,8 @@ const Home = ({ isConnected }) =>
             {/* <p>Signed in as {session.user.email}</p> */}
         
             {(status === 'authenticated') && <>
-              <DashboardComponent />
-              {console.log(session)}
+              {router.push('/dashboard')}
+             
             </>}
             {/* <h2>{currentUser}</h2> */}
             {/* {isConnected ? (

@@ -6,7 +6,6 @@ const MyApp=({
   pageProps: { session, ...pageProps },
 }) =>
 {
-    const { user } = pageProps;
     return (
       <SessionProvider session={session}>
            <div className=" w-screen">

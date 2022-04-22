@@ -8,7 +8,9 @@ export default async function handler(req, res)
         case 'POST': {
             return updateDetails(req, res);
         }
-
+    case 'GET':{
+        return getDetails(req, res);
+        }
         case 'DELETE': {
             return deleteGoal(req, res);
         }
@@ -67,3 +69,18 @@ async function updateDetails(req, res)
     }
     
 }   
+
+
+
+async function getDetails(req, res) {
+    try {
+        let updatedDetails = JSON.parse(req.body)
+        console.log(updatedDetails)
+    } catch (error) {
+        //return an error
+        return res.json({
+            message: new Error(error).message,
+            success: false
+        })
+    }
+}

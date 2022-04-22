@@ -12,7 +12,7 @@ import { LinkDiv1, LinkDiv2 } from '../LinkDiv'
   
 
 
-export function DashBoardComponent()
+export function DashboardComponent()
 {
 //  const {saveUser, currentUser, setCurrentUser, getUser} = useContext(SaveUserContext)
  
