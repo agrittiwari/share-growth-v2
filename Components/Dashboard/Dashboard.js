@@ -3,35 +3,22 @@ import { SaveUserContext } from '../../Contexts/userContext/userContext'
 import Navbar from '../Navbar'
 import NewGoalForm from '../Forms'
 import MakeEntryForm from '../Forms'
-import {
-    useSession, signIn, signOut
-  } from 'next-auth/react'
-import Link from 'next/link'
+
 import SharedItem from '../SharedItem'
 import { LinkDiv1, LinkDiv2 } from '../LinkDiv'
+import { UserDetails } from './UserDetails'
   
 
 
 export function DashboardComponent()
 {
-//  const {saveUser, currentUser, setCurrentUser, getUser} = useContext(SaveUserContext)
- 
-  const { data: session, status } = useSession()
-
-    
-//    useEffect(() => {
-//     console.log('printing...')
-//      getUser(session)
-//      console.log('printing...')
-// }, [])
- 
- 
-
     return (
                  
       <div>
       <Navbar />
-     <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
+     <UserDetails/>
+     
+     {/* <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
         
          <div className="flex flex-row  m-2 ">
              
@@ -49,7 +36,7 @@ export function DashboardComponent()
             
         </div>
 
-     </div>
+     </div> */}
      
         <div className="flex flex-row justify-center bg-blue-200 container-fluid p-5 w-11/12 ">
           <LinkDiv1/>

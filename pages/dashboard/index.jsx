@@ -21,7 +21,7 @@ const Dashboard = ({ isConnected }) =>
     return (
       <div className="overflow-hidden">
         <Head>
-          <title>Share Growth</title>
+          <title>Dashboard</title>
           <link rel="icon" href="/favicon.ico" />
           <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
    

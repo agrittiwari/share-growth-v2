@@ -5,9 +5,7 @@ import
   import { useRouter } from 'next/router'
 
 import Head from 'next/head'
-//import { useContext, useEffect } from 'react'
-
-// import { SaveUserContext } from '../Contexts/userContext/userContext'
+import { Loader } from "../Components/Loader"
 
 import clientPromise from '../lib/mongodb'
 
@@ -19,16 +17,9 @@ const Home = ({ isConnected }) =>
 {
   const { data: session, status } = useSession()
   const router= useRouter()
-  //const {currentUser,saveUser, getUser, setCurrentUser} = useContext(SaveUserContext)
- 
- 
-  // useEffect(() =>
-  // {
-  //   saveUser(user)
-  //   getUser()
-     
-  // }, [session])
-
+if (status ==='loading') return <Loader/>
+if ( (status === 'authenticated') && router.push('/dashboard'))
+if (status === 'unauthenticated') 
     return (
       <div className="overflow-hidden">
         <Head>
@@ -38,30 +29,10 @@ const Home = ({ isConnected }) =>
    
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"></link>
         </Head>
-        { (status === "authenticated") &&
+          
           <main>
-            {/* <p>Signed in as {session.user.email}</p> */}
-        
-            {(status === 'authenticated') && <>
-              {router.push('/dashboard')}
-             
-            </>}
-            {/* <h2>{currentUser}</h2> */}
-            {/* {isConnected ? (
-              <div className="justify-self-center m-5 ml-49">
-                <h2>Your Habits
-                </h2>
-              </div>
-            ) : (
-              <h2 className="subtitle justify-self-center">
-                Your habits aren't loading <code>README.md</code>{' '}
-                for instructions.
-              </h2>
-            )} */}
-          </main>}
-        {(status === 'unauthenticated') &&   <main>
           <HomePage />
-        </main>}
+        </main>
       </div>)
   
  
