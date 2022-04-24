@@ -20,29 +20,29 @@ export default async function handler(req, res)
  {
     let _id = ObjectId(req.query.userId)
     console.log(_id)
-    // //console.log(`logging this... in api ${req.params.userId}`)
-    // try {
+    //console.log(`logging this... in api ${req.params.userId}`)
+    try {
         
       
       
-    //     //connect to database
-    //     const client = await clientPromise;
-    //     const db = client.db()
+        //connect to database
+        const client = await clientPromise;
+        const db = client.db()
 
-    //     //get details
-    //     const details = await db.collection('users').find({_id})
-    //     console.log(details)
-    //     if (!details) {
-    //         return res.status(402).json({ error: { message: 'Edit your Profile. No details found' } });
-    //       }
+        //get details
+        const details = await db.collection('users').find({_id})
+        console.log(details)
+        if (!details) {
+            return res.status(402).json({ error: { message: 'Edit your Profile. No details found' } });
+          }
 
-    //     return res.json({details})
+        return res.json({details})
 
-    // } catch (error) {
-    //     //return an error
-    //     return res.json({
-    //         message: new Error(error).message,
-    //         success: false
-    //     })
-    // }
+    } catch (error) {
+        //return an error
+        return res.json({
+            message: new Error(error).message,
+            success: false
+        })
+    }
 }
