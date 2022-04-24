@@ -15,8 +15,8 @@ export const UserDetails =() =>{
   const router= useRouter()
   console.log(session.user)
   if(status=='authenticated'){
-    console.log(`logging from 'userDetails Component ${session.user.id}`)
-    const { user, isLoading, isError }  = useUserDetails(session.user.id)
+    console.log(`logging from 'userDetails Component ${session?.user.id}` )
+    const { user, isLoading, error }  = useUserDetails({ userId: session?.user.id})
     if (isLoading) return ( 
       <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
       <div className="flex flex-row  m-2 ">
@@ -38,13 +38,12 @@ export const UserDetails =() =>{
     </div>
     </div>)
        
-    if(isError) {console.error(isError.message)
-    return null;}
-    // return(
-    //     <div>
-    //   <p>error:{error.message}</p>
-    //     </div>    
-    //   )
+    if(error)  
+    return(
+        <div>
+      <p>error: {error.message}</p>
+        </div>    
+      )
     
        if (user) {console.log(user)
       return null;}

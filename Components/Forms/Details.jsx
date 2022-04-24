@@ -38,7 +38,7 @@ const postDetails = async (e) =>
             //get the data
     
             let data = await response.json()
-    console.log( data)
+    console.log( `this is from details component ${data.message}`)
             if (data.success) {
                  // reset the fields
                  setAbout('');
