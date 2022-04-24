@@ -2,6 +2,8 @@ import { useState } from "react"
 import { SuccessAlert, ErrorAlert} from "../Alert";
 
 
+
+
 export const EditDetails = ({userId}) =>
 { const [error, setError] = useState('');
 const [message, setMessage] = useState('');
@@ -58,6 +60,9 @@ const postDetails = async (e) =>
 }
     return (
         <div className="m-100 p-10 mt-20 px-70 border-1  bg-blue-200  flex flex-col shadow-2xl rounded-lg w-11/12 inset-5">
+
+
+            
                      {error ? <ErrorAlert error={error} /> : null}
                
                 {message ? <SuccessAlert msg={message}/>: null}

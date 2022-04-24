@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-
-import { MakeEntryForm } from '../Components/Forms';
+import {BackToDashboard} from '../../Components/Buttons';
+import { MakeEntryForm } from '../../Components/Forms';
 
 const makeEntry = () => {
     const { data: session,status } = useSession()
@@ -37,7 +37,7 @@ const makeEntry = () => {
             <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
         </head>
         <main><div className="container mx-auto relative h-100 w-82">
-             
+             <BackToDashboard />
                 <MakeEntryForm/>
                 
             </div></main>

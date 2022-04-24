@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import clientPromise from '../lib/mongodb'
+import {BackToDashboard} from '../../Components/Buttons'
+import clientPromise from '../../lib/mongodb'
 
-import { NewGoalForm } from '../Components/Forms';
+import { NewGoalForm } from '../../Components/Forms';
 
 const makeEntry = ({ isConnected }) =>
 {
@@ -38,8 +39,9 @@ const makeEntry = ({ isConnected }) =>
         <div><head>  
             <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
         </head>
-        <main><div className="container-fluid mx-auto relative h-100 w-82">
-        <div>  {isConnected ? (
+        <main>
+          <div className="container mx-auto relative h-100 w-82">
+        {/* <div>  {isConnected ? (
               <div className="justify-self-center m-5 ml-49">
                 <h2>Your Habits
                 </h2>
@@ -49,7 +51,8 @@ const makeEntry = ({ isConnected }) =>
                 Your habits aren't loading <code>README.md</code>{' '}
                 for instructions.
               </h2>
-            )}</div>
+            )}</div> */}
+            <BackToDashboard/>
                 <NewGoalForm userId={session?.user.id} />
                 {/* {console.log(session?.user.id)} */}
                 {/* {console.log(ObjectId)} */}

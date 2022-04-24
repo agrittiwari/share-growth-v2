@@ -4,5 +4,5 @@ import btn from './Button.module.css'
 
 export const BackToDashboard = () =>
 {
-    return(<Button className={btn.returnBtn}> <Link to="/">Back to Dashboard</Link></Button>)
+    return(<button className={btn.returnBtn}> <Link href="/dashboard">Back to Dashboard</Link></button>)
 }

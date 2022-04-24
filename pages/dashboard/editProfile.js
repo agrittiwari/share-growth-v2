@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { EditDetails } from "../Components/Forms";
-
+import { EditDetails } from "../../Components/Forms";
+import {BackToDashboard} from '../../Components/Buttons'
   
 // Print new id to the console
 
@@ -27,6 +27,7 @@ export default function EditProfile()
             <main>
                 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
                 <div className="container mx-auto relative h-100 w-82">
+                <BackToDashboard/>
                 <EditDetails userId={session?.user.id}/>
                 </div>
             </main>         
