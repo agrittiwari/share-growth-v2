@@ -18,7 +18,7 @@ const Home = ({ isConnected }) =>
   const { data: session, status } = useSession()
   const router= useRouter()
 if (status ==='loading') return <Loader/>
-if  (status === 'authenticated')  router.push('/dashboard')
+if  (status === 'authenticated') { router.push('/dashboard')}
 if (status === 'unauthenticated') {
     return (
       <div className="overflow-hidden">

@@ -30,15 +30,15 @@ export default async function handler(req, res)
         const db = client.db()
 
         //get details
-        const details = await db.collection("users").find({_id})
-       console.log(JSON.stringify(details))
-        console.log(await details.next())
-        console.log(await details.next())
-        if (!details) {
+        const user = await db.collection("users").find({_id})
+    //    console.log(JSON.stringify(details))
+        const userById = await user.next()
+     //   console.log(JSON.stringify(userById))
+        if (!userById) {
             return res.status(402).json({ error: { message: 'Edit your Profile. No details found' } });
           }
 
-        return res.json({details})
+        return res.json({userById})
 
     } catch (error) {
         //return an error

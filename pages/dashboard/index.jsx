@@ -4,7 +4,7 @@ import
   } from "next-auth/react"
 
 import Head from 'next/head'
-
+import { useRouter } from 'next/router'
 // import { SaveUserContext } from '../Contexts/userContext/userContext'
 
 import clientPromise from '../../lib/mongodb'
@@ -17,7 +17,10 @@ const Dashboard = ({ isConnected }) =>
 {
   const { data: session, status } = useSession()
   
-
+  const router= useRouter()
+  if(status === 'unauthenticated'){
+    router.push('/')}
+  
     return (
       <div className="overflow-hidden">
         <Head>
@@ -48,9 +51,7 @@ const Dashboard = ({ isConnected }) =>
               </h2>
             )} */}
           </main>}
-        {(status === 'unauthenticated') &&   <main>
-          <HomePage />
-        </main>}
+        
       </div>)
   
  
