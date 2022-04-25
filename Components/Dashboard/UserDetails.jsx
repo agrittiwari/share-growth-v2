@@ -49,24 +49,26 @@ export const UserDetails =() =>{
          console.log(data)
       //return null;}
        return (   
+        <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
         <div className="flex flex-row  m-2 ">
         <Image
         className=" rounded-full h-40 w-40  border-2 border-yellow-800 p-1 mr-8"
           src={data.user.image}
           alt="User-Image"
-          width={500}
-          height={500}
+          width={250}
+          height={250}
         />
-      <img src={data.user.image} className=" rounded-full h-40 w-40  border-2 border-yellow-800 p-1 mr-8" />
+      {/* <img src={data.user.image} className=" rounded-full h-40 w-40  border-2 border-yellow-800 p-1 mr-8" /> */}
       <div className="ml-20 mr-20">
         <h1>👋 {data.user.name}</h1>
         <p><Link href={`https://www.twitter.com/${data.user.twitterHandle}`}>{data.user.twitterHandle}</Link></p>
-        <p>🏀🎓 {data.user.bioLink}  </p>
+        <p>🏀🎓<Link href= {data.user.bioLink} >Know more about me!</Link> </p>
       <button>
       <Link  href="/editProfile">Edit Profile</Link></button>  
       </div>
       
       
+      </div>
       </div>)}
   }
   
