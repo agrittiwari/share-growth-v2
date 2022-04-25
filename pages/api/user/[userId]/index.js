@@ -18,8 +18,8 @@ export default async function handler(req, res)
 
  async function findUserById(req, res) 
  {
-    let id = JSON.stringify(ObjectId(req.query.userId))
-    console.log(id)
+    let _id = ObjectId(req.query.userId)
+    console.log(_id)
     console.log(`logging this... in api ${req.query.userId}`)
     try {
         
@@ -30,8 +30,10 @@ export default async function handler(req, res)
         const db = client.db()
 
         //get details
-        const details = await db.collection("users").find({_id:id})
-       console.log(details)
+        const details = await db.collection("users").find({_id})
+       console.log(JSON.stringify(details))
+        console.log(await details.next())
+        console.log(await details.next())
         if (!details) {
             return res.status(402).json({ error: { message: 'Edit your Profile. No details found' } });
           }

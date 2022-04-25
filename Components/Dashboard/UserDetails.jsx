@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 export const UserDetails =() =>{
   const { data: session, status } = useSession()
   const router= useRouter()
-  console.log(session.user)
+ // console.log(session.user)
   if(status=='authenticated'){
     console.log(`logging from 'userDetails Component ${session?.user.id}` )
     const { data, isLoading, error }  = useUserDetails({ userId: session?.user.id})
