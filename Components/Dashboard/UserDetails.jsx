@@ -16,7 +16,7 @@ export const UserDetails =() =>{
   console.log(session.user)
   if(status=='authenticated'){
     console.log(`logging from 'userDetails Component ${session?.user.id}` )
-    const { user, isLoading, error }  = useUserDetails({ userId: session?.user.id})
+    const { data, isLoading, error }  = useUserDetails({ userId: session?.user.id})
     if (isLoading) return ( 
       <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
       <div className="flex flex-row  m-2 ">
@@ -45,7 +45,8 @@ export const UserDetails =() =>{
         </div>    
       )
     
-       if (user) {console.log(user)
+       if (data) {
+         console.log(data)
       return null;}
       //  return (   
       //   <div className="flex flex-row  m-2 ">
@@ -66,7 +67,7 @@ export const UserDetails =() =>{
       // </div>
       
       
-      // </div>)
+      // </div>)}
   }
   
   if (status==='unauthenticated'){
