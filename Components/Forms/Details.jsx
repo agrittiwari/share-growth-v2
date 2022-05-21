@@ -89,11 +89,3 @@ const postDetails = async (e) =>
      
 } 
  
-export const RenderDetails = () =>
-{
-    return (
-        <div><li>about</li>
-            <li>bioLink</li><li>
-            TwitterHandle</li></div>
-    )
-}

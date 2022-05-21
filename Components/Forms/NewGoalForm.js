@@ -79,6 +79,14 @@ console.log( data)
             <div><h2>Displaying states</h2>
                 <li>{title}</li>
                 <li>{description}</li></div>
+
+{/* comment schema */}
+                {/* {"comment":{"content":"hmm",
+                                "postId":"626680e708cb0488b0fddd23",
+                                "creatorId":"62188a8cb3a1a130c249e039",
+                                "createdAt":"2022-04-25T17:10:55.281Z",
+                                "_id":"6266d61fef592dd975e2a920"}
+                    } */}
         </div>
 
 
