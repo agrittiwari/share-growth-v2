@@ -18,7 +18,7 @@ export const UserDetails =() =>{
     console.log(`logging from 'userDetails Component ${session?.user.id}` )
     const { data, isLoading, error }  = useUserDetails({ userId: session?.user.id})
     if (isLoading) return ( 
-      <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
+      <div className=" flex flex-row space-between p-4 bg-blue-300	max-w-4xl justify-between container-fluid">
       <div className="flex flex-row  m-2 ">
       <Image
         className=" rounded-full h-40 w-40  border-2 border-yellow-800 p-1 mr-8"
@@ -49,7 +49,7 @@ export const UserDetails =() =>{
          console.log(data.user)
       //return null;}
        return (   
-        <div className=" flex flex-row space-between p-4 bg-blue-300	 justify-between container-fluid">
+        <div className=" flex flex-row space-between p-4 bg-blue-300 max-w-4xl	 justify-between container-fluid">
         <div className="flex flex-row  m-2 ">
         <Image
         className=" rounded-full h-40 w-40  border-2 border-yellow-800 p-1 mr-8"

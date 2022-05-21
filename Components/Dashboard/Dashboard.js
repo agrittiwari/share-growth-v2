@@ -38,14 +38,17 @@ export function DashboardComponent()
 
      </div> */}
      
-        <div className="flex flex-row justify-center bg-blue-200 container-fluid p-5 w-11/12 ">
+        <div className=" bg-blue-200  ">
+          <div className="flex flex-row justify-center max-w-4xl container-fluid p-5 w-10/12">
           <LinkDiv1/>
           <LinkDiv2/>
+          </div>
+          
           
           {/* <CurrentGoalEntry />
    <NewGoalForm /> */}
         </div>
-        <div className="flex flex-row justify-items-center bg-blue-300 container-fluid p-5 w-2/5 ">
+        <div className="flex flex-row justify-items-center bg-blue-300 container-fluid max-w-4xl p-5 w-2/5 ">
         <SharedItem/>
         </div>
 

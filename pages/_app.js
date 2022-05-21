@@ -1,4 +1,5 @@
 import { SessionProvider } from "next-auth/react"
+import '../styles.css'
 //import { SaveUserProvider } from '../Contexts/userContext/userContext';
 
 const MyApp=({
