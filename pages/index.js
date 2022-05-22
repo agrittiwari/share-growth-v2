@@ -18,23 +18,23 @@ const Home = ({ isConnected }) =>
   const { data: session, status } = useSession()
   const router= useRouter()
 if (status ==='loading') return <Loader/>
-if  (status === 'authenticated') { router.push('/dashboard')}
-if (status === 'unauthenticated') {
+if  (status ==='authenticated' ) { router.push('/dashboard')}
+ 
     return (
       <div className="overflow-hidden">
         <Head>
           <title>Share Growth</title>
           <link rel="icon" href="/favicon.ico" />
           <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
-   
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"></link>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossOrigin="anonymous"></link>
         </Head>
-          
+         
           <main>
-          <HomePage />
+            {(status==='unauthenticated')&&<HomePage />}
+          
         </main>
-      </div>)}
+      </div>)
   
  
   }

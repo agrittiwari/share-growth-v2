@@ -30,7 +30,7 @@ function Navbar({ user })
         
         {session && (     
                     <li className="nav-link active underline underline-offset-1">
-                        <button onClick={() => signOut()}>Sign out <i class="fas fa-sign-out-alt"></i></button>
+                        <button onClick={() => signOut()}>Sign out <i className="fas fa-sign-out-alt"></i></button>
                     </li>        
         )}     
 
